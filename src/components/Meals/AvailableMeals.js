@@ -44,6 +44,10 @@ const AvailableMeals = () => {
 
 	let content = <p>Found no meals.</p>;
 
+	if (isLoading) {
+		content = <p>Loading...</p>;
+	}
+
 	if (meals.length > 0) {
 		content = meals.map((meal) => (
 			<MealItem
@@ -62,10 +66,6 @@ const AvailableMeals = () => {
 		content = <p>{error}</p>;
 	}
 	
-	if (isLoading) {
-		content = <p>Loading...</p>;
-	}
-
 	return (
 		<section className={classes.meals}>
 			<Card>
